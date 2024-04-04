@@ -4,3 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  /* text-colors */
+  --clr-primary: #706F6F;
+  --clr-heading: #403F3F;
+  --clr-white:#fff;
+
+  --clr-accent: #D72050;
+
+  /* background-colors */
+  --bg-primary: #F3F3F3;
+}

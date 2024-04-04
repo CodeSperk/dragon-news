@@ -7,10 +7,10 @@ import LeftAside from "./leftAside/LeftAside";
 const Home = () => {
   return (
     <div className="max-w-7xl mx-auto px-2 md:px-8 lg:px-10 xl:px-16">
-      <header className="text-center border-2 space-y-4 my-10">
-        <div className="border-2 border-red-500 min-h-16">
+      <header>
+        
           <PageHeader></PageHeader>
-        </div>
+      
         <div className="border-2 border-blue-500 min-h-6">
           <BreakingNews></BreakingNews>
         </div>
