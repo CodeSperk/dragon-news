@@ -10,11 +10,9 @@ const Home = () => {
       <header>
         
           <PageHeader></PageHeader>
-      
-        <div className="border-2 border-blue-500 min-h-6">
           <BreakingNews></BreakingNews>
-        </div>
-        <nav className="border-2 border-green-500 min-h-8">
+      
+        <nav className="border-2 border-green-500 min-h-8 mt-10">
           <Navbar></Navbar>
         </nav>
       </header>
