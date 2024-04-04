@@ -8,24 +8,23 @@ const Home = () => {
   return (
     <div className="max-w-7xl mx-auto px-2 md:px-8 lg:px-10 xl:px-16">
       <header>
-        
           <PageHeader></PageHeader>
           <BreakingNews></BreakingNews>
           <Navbar></Navbar>
-        
       </header>
 
-      <div className="border-2 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <main className="grid grid-cols-1 md:grid-cols-4 gap-6 my-10 md:my-14 lg:my-16">
         <aside className="border-2 border-green-500 min-h-[150px]">
           <LeftAside></LeftAside>
         </aside>
         <main className="border-2 border-blue-500 md:col-span-2 min-h-[300px]">
             Main section .....
         </main>
-        <aside className="border-2 border-green-500 min-h-[150px]">
+
+        <aside>
           <RightAside></RightAside>
         </aside>
-      </div>
+      </main>
     </div>
   );
 };
