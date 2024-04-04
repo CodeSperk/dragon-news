@@ -11,10 +11,8 @@ const Home = () => {
         
           <PageHeader></PageHeader>
           <BreakingNews></BreakingNews>
-      
-        <nav className="border-2 border-green-500 min-h-8 mt-10">
           <Navbar></Navbar>
-        </nav>
+        
       </header>
 
       <div className="border-2 grid grid-cols-1 md:grid-cols-4 gap-6">
