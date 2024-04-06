@@ -1,10 +1,14 @@
+import {useLoaderData} from "react-router-dom";
 import Navbar from "../../components/shared/navbar/Navbar";
 import PageHeader from "../../components/shared/pageHeader/PageHeader";
 import RightAside from "../../components/shared/rightAside/RightAside";
 import BreakingNews from "./breakingNews/BreakingNews";
 import LeftAside from "./leftAside/LeftAside";
+import NewsCard from "./newsCard/NewsCard";
 
 const Home = () => {
+    const news = useLoaderData();
+  
   return (
     <div className="max-w-7xl mx-auto px-2 md:px-8 lg:px-10 xl:px-16">
       <header>
@@ -18,8 +22,10 @@ const Home = () => {
           <LeftAside></LeftAside>
         </aside>
         
-        <main className="border-2 border-blue-500 md:col-span-2 min-h-[300px]">
-            Main section .....
+        <main className="md:col-span-2 min-h-[300px] flex flex-col gap-8">
+            {
+              news.map(singleNews => <NewsCard key={singleNews._id} singleNews={singleNews}></NewsCard>)
+            }
         </main>
 
         <aside>
