@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/shared/navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
   const {createUser, logOutUser} = useContext(AuthContext);
-  
-
-
-
+  const [success, setSuccess] = useState(null);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,12 +19,12 @@ const Register = () => {
     createUser(email, password)
     .then(result=>{
       const user = result.user;
-      console.log("success");
+      setSuccess("Registration Successful.  You can Login now");
 
       //to stop auto login after register
       logOutUser()
       .then(()=>{
-        console.log("logout successful");
+        console.log("Logout successful.");
       })
       .catch(error=>{
         console.log(error.code);
@@ -50,6 +47,11 @@ const Register = () => {
          
           <div className="card shadow-xl bg-base-100 w-2/3 max-w-md">
             <form className="card-body" onSubmit={handleRegister}>
+              {/* To display success message */}
+              <div className="text-center text-blue-500 font-medium">
+                <p>{success}</p>
+              </div>
+              
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>

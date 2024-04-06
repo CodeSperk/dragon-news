@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/shared/navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const authInfo = useContext(AuthContext);
-  const {loginUser} = authInfo;
+  const { loginUser } = authInfo;
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,14 +17,11 @@ const Login = () => {
     const password = form.get("password");
 
     loginUser(email, password)
-    .then(result => {
-      console.log(result.user);
-    })
-    .catch(error=> {
-      console.log(error.code);
-    })
-
-  }
+      .then((result) => {})
+      .catch((error) => {
+        console.log(error.code);
+      });
+  };
 
   return (
     <div className="bg-[var(--bg-primary)]">
