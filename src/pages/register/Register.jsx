@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser, logOutUser} = useContext(AuthContext);
   
 
 
@@ -22,7 +22,16 @@ const Register = () => {
     createUser(email, password)
     .then(result=>{
       const user = result.user;
-      console.log(user);
+      console.log("success");
+
+      //to stop auto login after register
+      logOutUser()
+      .then(()=>{
+        console.log("logout successful");
+      })
+      .catch(error=>{
+        console.log(error.code);
+      })
     })
     .catch(error=> {
       console.log(error.code);
