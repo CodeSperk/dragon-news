@@ -1,8 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import defaultUser from "../../../assets/user.png";
 import { IoMenu } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOutUser} = useContext(AuthContext);
+  console.log(user);
+
+
+  const handleLogOut = () => {
+    logOutUser()
+    .then()
+    .catch(error=>{
+      console.log(error.code);
+    })
+  }
 
   const navLinks = <>
     <li><NavLink to="/">Home</NavLink></li>
@@ -37,7 +50,14 @@ const Navbar = () => {
         <div className="">
           <img src={defaultUser} alt="User PP" className="w-10 h-10 mr-2"/>
         </div>
-        <Link to="/login"><button className="py-2 px-6 bg-[var(--clr-heading)] text-white rounded-md border-2 hover:border-[var(--clr-heading)] hover:bg-transparent hover:text-[var(--clr-heading)] font-semibold">Login</button></Link>
+
+        <button className="py-2 px-6 bg-[var(--clr-heading)] text-white rounded-md border-2 hover:border-[var(--clr-heading)] hover:bg-transparent hover:text-[var(--clr-heading)] font-semibold">
+        {
+          user ? <Link to="/" onClick={handleLogOut}>Logout</Link> : <Link to="/login">Login</Link> 
+        }
+        
+        
+        </button>
 
       </div>
     </div>

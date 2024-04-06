@@ -1,16 +1,27 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/shared/navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const authInfo = useContext(AuthContext);
+  const {loginUser} = authInfo;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget);
+    // console.log(e.currentTarget);
 
     const form = new FormData(e.currentTarget);
-    console.log(form);
     const email = form.get("email");
-    console.log(email);
+    const password = form.get("password");
+
+    loginUser(email, password)
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error=> {
+      console.log(error.code);
+    })
 
   }
 
@@ -22,7 +33,7 @@ const Login = () => {
         {/* <div className="hero-content"> */}
 
         <div className="card shadow-xl bg-base-100 w-2/3 max-w-md">
-          <form className="card-body" onClick={handleLogin}>
+          <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
