@@ -33,7 +33,7 @@ const NewsCard = ({ singleNews }) => {
         <p className="mb-5 text-justify">
         {
           details.length > 200 ? <p>{details.slice(0, 200)} <Link 
-          to="/"
+          to={`/news/${_id}`}
           className="text-blue-600">Read More...</Link> </p> : <p>{details}</p>
         }
         </p>

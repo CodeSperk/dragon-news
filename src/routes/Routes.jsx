@@ -3,6 +3,8 @@ import Layout from "../root/Layout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import NewsDetails from "../pages/newsDetails/NewsDetails";
+import PrivateRout from "../hooks/PrivateRout";
 
 const routes = createBrowserRouter([
   {
@@ -21,6 +23,10 @@ const routes = createBrowserRouter([
       {
         path:"/register",
         element:<Register></Register>,
+      },
+      {
+        path:"/news/:id",
+        element:<PrivateRout><NewsDetails></NewsDetails></PrivateRout>
       }
     ]
   }
